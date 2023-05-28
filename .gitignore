@@ -1,0 +1,7 @@
+#IS A VIRTUAL ENV
+**/venv
+**/data
+**/.vite
+**/media/*
+!**/media/.gitkeep
+!**/media/poster-demo.jpeg
