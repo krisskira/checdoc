@@ -1,0 +1,491 @@
+{
+	"info": {
+		"_postman_id": "79065571-f6c9-4bc5-87bf-ed95c51ca920",
+		"name": "API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1636526"
+	},
+	"item": [
+		{
+			"name": "token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const responseJson = pm.response.json();",
+							"pm.environment.set(\"token\", \"Token \" + responseJson.token)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"david\",\n    \"password\": \"1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/token/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"token",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"david\",\n    \"password\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/token/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"token",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 May 2023 23:56:40 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, OPTIONS"
+						},
+						{
+							"key": "Vary",
+							"value": "origin"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"3aa86e562f68b302f50d2568f6951fe4b9b824de\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Video",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/video/?limit=10&offset=0",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"video",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "offset",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Video",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/video/?limit=10&offset=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 May 2023 01:13:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "288"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"description\": \"Spider-Man centers on student Peter Parker (Tobey Maguire) who\",\n            \"releaseYear\": 2009,\n            \"title\": \"Spiderman 2\",\n            \"programType\": \"movie\",\n            \"images\": {\n                \"Poster Art\": {\n                    \"url\": \"/media/hombre-arana_VUlVB6G.jpeg\",\n                    \"width\": 883,\n                    \"height\": 1390\n                }\n            }\n        }\n    ]\n}"
+				},
+				{
+					"name": "Video-end-pagination",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/video/?limit=10&offset=1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.3"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 28 May 2023 01:13:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "89"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1,\n    \"next\": null,\n    \"previous\": \"http://localhost/api/v1/video/?limit=10\",\n    \"results\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "Video",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Spiderman 2",
+							"description": "String",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Spider-Man centers on student Peter Parker (Tobey Maguire) who",
+							"description": "String",
+							"type": "text"
+						},
+						{
+							"key": "programType",
+							"value": "movie",
+							"description": "Values: movie | serie",
+							"type": "text"
+						},
+						{
+							"key": "releaseYear",
+							"value": "2009",
+							"description": "Numeric",
+							"type": "text"
+						},
+						{
+							"key": "image_url",
+							"description": "File type image",
+							"type": "file",
+							"src": "/Users/david/Downloads/hombre-araña.jpeg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/video/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"video",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Video",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Spiderman 2",
+									"description": "String",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Spider-Man centers on student Peter Parker (Tobey Maguire) who",
+									"description": "String",
+									"type": "text"
+								},
+								{
+									"key": "programType",
+									"value": "movie",
+									"description": "Values: movie | serie",
+									"type": "text"
+								},
+								{
+									"key": "releaseYear",
+									"value": "2009",
+									"description": "Numeric",
+									"type": "text"
+								},
+								{
+									"key": "image_url",
+									"description": "File type image",
+									"type": "file",
+									"src": "/Users/david/Downloads/hombre-araña.jpeg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/video/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"video",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sat, 27 May 2023 23:58:00 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.9.6"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "304"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"image_url\": \"http://localhost:8000/media/hombre-arana_VUlVB6G.jpeg\",\n    \"description\": \"Spider-Man centers on student Peter Parker (Tobey Maguire) who\",\n    \"programType\": \"movie\",\n    \"releaseYear\": 2009,\n    \"title\": \"Spiderman 2\",\n    \"images\": {\n        \"Poster Art\": {\n            \"url\": \"/media/hombre-arana_VUlVB6G.jpeg\",\n            \"width\": 883,\n            \"height\": 1390\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/profile/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"profile",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

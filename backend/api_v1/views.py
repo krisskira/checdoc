@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import viewsets
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 from .serializers import VideoSerializer
 from .models import VideoModel
 
@@ -24,3 +26,5 @@ class ProfileView(APIView):
 class VideoView(viewsets.ModelViewSet):
     serializer_class = VideoSerializer
     queryset = VideoModel.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['programType']

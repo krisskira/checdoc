@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-+6_2m$uvw8bb0!l@0kl()-ld7ag8wx-cfm@w1c&ity1&-$^gpc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ.get('DEBUG') == "1" else False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
+
 CORS_ORIGIN_WHITELIST = [
-    'http://0.0.0.0:8000',
 ]
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    'django_filters',
     'rest_framework',
     'rest_framework.authtoken',
     'api_v1',
@@ -62,7 +63,9 @@ ROOT_URLCONF = 'checdoc.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # os.path.join(BASE_DIR, 'frontend')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -135,6 +138,9 @@ USE_TZ = True
 STATIC_URL = 'static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+# STATICFILES_DIRS=[
+#     os.path.join(BASE_DIR, 'frontend/static')    
+# ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -144,6 +150,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
 }

@@ -5,3 +5,4 @@
 **/media/*
 !**/media/.gitkeep
 !**/media/poster-demo.jpeg
+backend/frontend/*
